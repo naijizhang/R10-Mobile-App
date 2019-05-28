@@ -11,7 +11,7 @@ class AboutContainer extends Component {
         {({ loading, data }) => {
           if (loading || !data) return <Loader loading={loading}/>;
           console.log(data);
-          return <About data={data} />;
+          return <About conductItems={data} />;
         }}
       </Query>
     );
