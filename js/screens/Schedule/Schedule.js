@@ -5,7 +5,7 @@ import SessionList from "../../components/SessionList"
 // create a component
 class Schedule extends Component {
   render() {
-    const { sessions,navigation } = this.props;
+    const { sessions } = this.props;
     console.log("sessions", sessions);
     return (
       <View style={styles.container}>

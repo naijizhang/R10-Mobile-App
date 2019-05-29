@@ -4,30 +4,30 @@ import Schedule from "./Schedule";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Loader from "../../components/Loader";
-import formatSessionData from "../../helpers"
+import formatSessionData from "../../helpers";
 // create a component
 class ScheduleContainer extends Component {
+  static navigationOptions = {
+    title: "Schedule"
+  };
   render() {
-    return ( <Query query={GET_SESSIONS}>
+    return (
+      <Query query={GET_SESSIONS}>
         {({ loading, data }) => {
           if (loading || !data) return <Loader loading={loading} />;
           console.log(data);
-          return <Schedule sessions={formatSessionData(data.allSessions)}/>;
+          return <Schedule sessions={formatSessionData(data.allSessions)} />;
         }}
-      </Query>);
+      </Query>
+    );
   }
 }
 const GET_SESSIONS = gql`
   query {
-    allSessions(orderBy: title_ASC) {
+    allSessions {
       id
       title
-      description
       location
-      speaker {
-        id
-        name
-      }
       startTime
     }
   }
