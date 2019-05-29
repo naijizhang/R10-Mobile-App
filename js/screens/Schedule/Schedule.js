@@ -1,13 +1,15 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-
+import React, { Component } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import SessionList from "../../components/SessionList"
 // create a component
 class Schedule extends Component {
   render() {
+    const { sessions,navigation } = this.props;
+    console.log("sessions", sessions);
     return (
       <View style={styles.container}>
-        <Text>Schedule</Text>
+       <SessionList sessions={sessions} />
       </View>
     );
   }
@@ -17,21 +19,10 @@ class Schedule extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
-  },
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ffffff"
+  }
 });
-export const formatSessionData = sessions => {
-  return sessions
-    .reduce((acc, curr) => {
-      const timeExists = acc.find(section => section.title === curr.startTime);
-      timeExists
-        ? timeExists.data.push(curr)
-        : acc.push({ title: curr.startTime, data: [curr] });
-      return acc;
-    }, [])
-    .sort((a, b) => a.title - b.title);
-};
 //make this component available to the app
 export default Schedule;
