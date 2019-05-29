@@ -1,25 +1,28 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { Component } from "react";
+import { View, Text, StyleSheet, Image, Button, Linking } from "react-native";
 
 // create a component
-const Speaker = () => {
-    return (
-        <View style={styles.container}>
-            <Text>Speaker</Text>
-        </View>
-    );
+const Speaker = ({ speaker }) => {
+  return (
+    <View>
+      <Image
+        style={{ width: 50, height: 50 }}
+        source={{ uri: speaker.image }}
+      />
+      <Text>{speaker.name}</Text>
+      <Text>{speaker.bio}</Text>
+      <Button
+        onPress={() => {
+          Linking.openURL(speaker.url);
+        }}
+        title="Read More on Wikipedia"
+        color="#841584"
+        accessibilityLabel="Read More on Wikipedia Button"
+      />
+    </View>
+  );
 };
-
-// define your styles
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2c3e50',
-    },
-});
 
 //make this component available to the app
 export default Speaker;
