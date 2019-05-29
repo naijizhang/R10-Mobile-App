@@ -1,15 +1,20 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
 import Session from "./Session";
+import { withNavigation } from "react-navigation";
 // create a component
 class SessionContainer extends Component {
+  static navigationOptions = {
+    title: "Session"
+  };
     render() {
+      const { navigation } = this.props;
+      const item = navigation.getParam('item', 'NO-ITEM');
         return (
-          <Session/>
+          <Session item={item}/>
         );
     }
 }
 
 //make this component available to the app
-export default SessionContainer;
+export default withNavigation(SessionContainer);

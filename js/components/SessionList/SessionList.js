@@ -10,7 +10,7 @@ import {
 import moment from "moment";
 import { withNavigation } from "react-navigation";
 // create a component
-const SessionList = ({ sessions,navigation }) => {
+const SessionList = ({ sessions, navigation }) => {
   console.log("Section list:", sessions);
   return (
     <View style={styles.container}>
@@ -21,11 +21,20 @@ const SessionList = ({ sessions,navigation }) => {
           </Text>
         )}
         renderItem={({ item, index, section }) => (
-          <TouchableHighlight  onPress={() => navigation.navigate('Session')}>
-            <Text key={index.toString()}>{item.title}</Text>
+          <TouchableHighlight
+            key={index}
+            onPress={() =>
+              navigation.navigate("Session", {item:item})
+            }
+          >
+            <View>
+              <Text>{item.title}</Text>
+              <Text>{item.location}</Text>
+            </View>
           </TouchableHighlight>
         )}
         sections={sessions}
+        keyExtractor={(item, index) => item + index}
       />
     </View>
   );
