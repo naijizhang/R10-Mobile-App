@@ -1,21 +1,25 @@
 //import liraries
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { Platform, View, Text, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { withNavigation } from "react-navigation";
+import Ionicons from "react-native-vector-icons/Ionicons";
 // create a component
-const SessionListItem = ({ item, navigation }) => {
+const SessionListItem = ({ item, navigation, isFave }) => {
+  const heartIconName = Platform.select({
+    ios: "ios-heart",
+    android: "md-heart"
+  });
   return (
     <TouchableOpacity onPress={() => navigation.navigate("Session", { item })}>
       <View>
-      <View>
-        <Text>{item.title}</Text>
-        <Text>{item.location}</Text>
+        <View>
+          <Text>{item.title}</Text>
+          <Text>{item.location}</Text>
         </View>
-        {/* <Image
-            style={{ width: 50, height: 50 }}
-            source={{ uri:  }}
-          /> */}
+        {isFave ? (
+          <Ionicons name={heartIconName} size={25} color={"red"} />
+        ) : null}
       </View>
     </TouchableOpacity>
   );

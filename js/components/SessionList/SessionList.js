@@ -2,12 +2,10 @@
 import React, { Component } from "react";
 import { View, Text, SectionList } from "react-native";
 import moment from "moment";
-import SessionListItem from "../SessionListItem"
+import SessionListItem from "../SessionListItem";
 import styles from "./styles";
 // create a component
-const SessionList = ({ sessions, favs }) => {
-  console.log("Section list:", sessions);
-  console.log("favs", favs);
+const SessionList = ({ sessions, faveIds }) => {
   return (
     <View style={styles.container}>
       <SectionList
@@ -15,7 +13,11 @@ const SessionList = ({ sessions, favs }) => {
           <Text style={styles.time}>{moment(title).format("LT")}</Text>
         )}
         renderItem={({ item, index, section }) => (
-          <SessionListItem item={item} key={index}/>
+          <SessionListItem
+            item={item}
+            key={index}
+            isFave={faveIds.includes(item.id)}
+          />
         )}
         sections={sessions}
         keyExtractor={(item, index) => item + index}
