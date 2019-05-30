@@ -1,8 +1,8 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { Platform, StyleSheet, View, TouchableOpacity } from "react-native";
 import { Header } from "react-navigation";
 import LinearGradient from "react-native-linear-gradient";
-
+import Ionicons from "react-native-vector-icons/Ionicons";
 const GradientHeader = props => (
   <View style={{ backgroundColor: "white", overflow: "hidden" }}>
     <LinearGradient
@@ -21,5 +21,20 @@ export const sharedNavigationOptions = navigation => ({
     backgroundColor: "transparent"
   },
   headerTintColor: "#ffffff",
-  headerTitleStyle: { color: "#ffffff", fontFamily: "Montserrat" }
+  headerTitleStyle: { color: "#ffffff", fontFamily: "Montserrat" },
+  headerLeft: Platform.OS === "android"&& navigation.state.routeName!=="Session" && (
+    <TouchableOpacity
+      title="Menu"
+      onPress={() => {
+        navigation.toggleDrawer();
+      }}
+    >
+      <Ionicons
+        name="md-menu"
+        size={25}
+        color={"#fff"}
+        style={{ marginLeft: 15 }}
+      />
+    </TouchableOpacity>
+  )
 });
