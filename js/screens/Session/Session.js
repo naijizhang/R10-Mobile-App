@@ -1,86 +1,66 @@
 //import liraries
 import React, { Component } from "react";
 import {
+  Platform,
   View,
   Text,
-  StyleSheet,
   ScrollView,
   Image,
   Button,
-  TouchableHighlight
+  TouchableOpacity
 } from "react-native";
 import moment from "moment";
-import gql from "graphql-tag";
-import Loader from "../../components/Loader";
-import { Query } from "react-apollo";
 import { withNavigation } from "react-navigation";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import styles from "./styles";
 // create a component
-const Session = ({ item, navigation }) => {
+const Session = ({ item, navigation, faveIds, addFave, removeFave }) => {
   console.log("item", item);
+  console.log("favids", faveIds);
+  console.log("removeFave", removeFave);
+  const heartIconName = Platform.select({
+    ios: "ios-heart",
+    android: "md-heart"
+  });
   return (
-    <Query
-      query={gql`
-        query {
-          Session(id: "${item.id}") {
-            description
-            speaker {
-              id
-              name
-              image
-              bio
-              url
-            }
-          }
+    <ScrollView>
+      <View>
+        <Text>{item.location}</Text>
+        {faveIds.includes(item.id) ? (
+          <Ionicons name={heartIconName} size={25} color={"red"} />
+        ) : null}
+      </View>
+      <Text>{item.title}</Text>
+      <Text>{moment(item.startTime).format("LT")}</Text>
+      <Text>{item.description}</Text>
+      <Text>Presented by:</Text>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate("Speaker", {
+            speaker: item.speaker
+          })
         }
-      `}
-    >
-      {({ loading, data }) => {
-        console.log("data", data);
-        if (loading || !data) return <Loader loading={loading} />;
-        return (
-          <ScrollView>
-            <Text>{item.location}</Text>
-            <Text>{item.title}</Text>
-            <Text>{moment(item.startTime).format("LT")}</Text>
-            <Text>{data.Session.description}</Text>
-            <Text>Presented by:</Text>
-            <TouchableHighlight
-              onPress={() =>
-                navigation.navigate("Speaker", {
-                  speaker: data.Session.speaker
-                })
-              }
-            >
-              <View>
-                <Image
-                  style={{ width: 50, height: 50 }}
-                  source={{ uri: data.Session.speaker.image }}
-                />
-                <Text>{data.Session.speaker.name}</Text>
-              </View>
-            </TouchableHighlight>
-            <Button
-              //   onPress={onPressLearnMore}
-              title="Remove from Favs"
-              color="#841584"
-              accessibilityLabel="Remove from Favs Button"
-            />
-          </ScrollView>
-        );
-      }}
-    </Query>
+      >
+        <View>
+          <Image
+            style={{ width: 50, height: 50 }}
+            source={{ uri: item.speaker.image }}
+          />
+          <Text>{item.speaker.name}</Text>
+        </View>
+      </TouchableOpacity>
+      {faveIds.includes(item.id) ? (
+        <TouchableOpacity onPress={() => removeFave(item.id)}>
+          <Text>Remove from Favs</Text>
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity onPress={() => addFave(item.id)}>
+          <Text>Add from Favs</Text>
+        </TouchableOpacity>
+      )}
+    </ScrollView>
   );
 };
-
-// define your styles
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#ffffff"
-  }
-});
 
 //make this component available to the app
 export default withNavigation(Session);
