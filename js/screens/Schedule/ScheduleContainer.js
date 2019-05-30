@@ -5,6 +5,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Loader from "../../components/Loader";
 import formatSessionData from "../../helpers";
+import FavesContext from "../../context/FavesContext";
 // create a component
 class ScheduleContainer extends Component {
   static navigationOptions = {
@@ -16,7 +17,16 @@ class ScheduleContainer extends Component {
         {({ loading, data }) => {
           if (loading || !data) return <Loader loading={loading} />;
           console.log(data);
-          return <Schedule sessions={formatSessionData(data.allSessions)} />;
+          return (
+            <FavesContext.Consumer>
+              {value => (
+                <Schedule
+                  sessions={formatSessionData(data.allSessions)}
+                  faveIds={value.faveIds}
+                />
+              )}
+            </FavesContext.Consumer>
+          );
         }}
       </Query>
     );

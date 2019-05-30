@@ -1,15 +1,15 @@
 //import liraries
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import SessionList from "../../components/SessionList"
+import SessionList from "../../components/SessionList";
+
 // create a component
 class Schedule extends Component {
   render() {
-    const { sessions } = this.props;
-    console.log("sessions", sessions);
+    const { sessions, faveIds } = this.props;
     return (
       <View style={styles.container}>
-       <SessionList sessions={sessions} />
+        <SessionList sessions={sessions} faveIds={faveIds} />
       </View>
     );
   }
