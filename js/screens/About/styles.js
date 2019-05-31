@@ -27,14 +27,6 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     margin: 10
-  },
-  eachBlock: { margin: 10 },
-  conductTitle: {
-    fontSize: 20,
-    color: colors.purple
-  },
-  conductContent: {
-      marginTop:5
   }
 });
 export default styles;

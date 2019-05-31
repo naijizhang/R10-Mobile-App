@@ -1,13 +1,17 @@
 import React from "react";
 import { ScrollView, Text, View, Image } from "react-native";
 import styles from "./styles";
+import ConductItem from "../../components/ConductItem";
 const About = ({ conductItems }) => {
   return (
     <ScrollView>
       <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require("../../assets/images/r10_logo.png")} />
+        <Image
+          style={styles.logo}
+          source={require("../../assets/images/r10_logo.png")}
+        />
       </View>
-      <View style={styles.seperater}></View>
+      <View style={styles.seperater} />
       <Text style={styles.paragraph}>
         R10 is a conference that focuses on just about any topic related to dev.
       </Text>
@@ -19,12 +23,7 @@ const About = ({ conductItems }) => {
       <Text style={styles.title}>Code of Conduct</Text>
       {conductItems &&
         conductItems.allConducts.map(item => {
-          return (
-            <View style={styles.eachBlock} key={item.id}>
-              <Text style={styles.conductTitle}>{item.title}</Text>
-              <Text style={styles.conductContent}>{item.description}</Text>
-            </View>
-          );
+          return <ConductItem item={item} key={item.id} />;
         })}
     </ScrollView>
   );
