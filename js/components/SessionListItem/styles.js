@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     borderTopColor: colors.lightGrey,
     borderTopWidth: 1
   },
-  secondBlock:{
+  locationAndHeart:{
     width:"100%",
     flex: 1,
     flexDirection:"row",
