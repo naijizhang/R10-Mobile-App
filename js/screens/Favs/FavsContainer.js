@@ -13,40 +13,34 @@ class FavsContainer extends Component {
   };
   render() {
     return (
-      <FavesContext.Consumer>
-        {value => {
+      <Query query={GET_SESSIONS}>
+        {({ loading, data }) => {
+          if (loading || !data) return <Loader loading={loading} />;
           return (
-            <Query
-              variables={{ faveIds: value.faveIds }}
-              query={GET_FAVE_SESSIONS}
-            >
-              {({ loading, data }) => {
-                if (loading || !data) return <Loader loading={loading} />;
-                console.log(data);
-                return (
-                  <Favs
-                    faveIds={value.faveIds}
-                    sessions={formatSessionData(data.allSessions)}
-                  />
-                );
-              }}
-            </Query>
+            <FavesContext.Consumer>
+              {value => (
+                <Favs
+                  sessions={formatSessionData(
+                    data.allSessions.filter(session =>
+                      value.faveIds.includes(session.id)
+                    )
+                  )}
+                  faveIds={value.faveIds}
+                />
+              )}
+            </FavesContext.Consumer>
           );
         }}
-      </FavesContext.Consumer>
+      </Query>
     );
   }
 }
-const GET_FAVE_SESSIONS = gql`
-  query allFaveSessions($faveIds: [ID!]) {
-    allSessions(filter: { id_in: $faveIds }) {
+const GET_SESSIONS = gql`
+  query {
+    allSessions {
       id
       title
-      description
       location
-      speaker {
-        id
-      }
       startTime
     }
   }
