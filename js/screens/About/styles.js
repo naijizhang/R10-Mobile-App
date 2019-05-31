@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
+import colors from "../../config/colors";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: colors.white
   },
   logo: {
     marginLeft: "auto",
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     width:"90%",
     marginLeft: "auto",
     marginRight: "auto",
-    borderBottomColor: "#bbb",
+    borderBottomColor: colors.lightGrey,
     borderBottomWidth: 2
   },
   title: {
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
   eachBlock: { margin: 10 },
   conductTitle: {
     fontSize: 20,
-    color: "#9963ea"
+    color: colors.purple
   },
   conductContent: {
       marginTop:5
