@@ -12,14 +12,16 @@ const SessionListItem = ({ item, navigation, isFave }) => {
   });
   return (
     <TouchableOpacity onPress={() => navigation.navigate("Session", { item })}>
-      <View>
-        <View>
-          <Text>{item.title}</Text>
-          <Text>{item.location}</Text>
+      <View style={styles.container}>
+        <Text style={styles.title}>{item.title}</Text>
+        <View style={styles.secondBlock}>
+          <Text style={styles.location}>{item.location}</Text>
+          <View>
+          {isFave ? (
+            <Ionicons style={styles.heartIcon} name={heartIconName} size={18} />
+          ) : null}
+          </View>
         </View>
-        {isFave ? (
-          <Ionicons name={heartIconName} size={25} color={"red"} />
-        ) : null}
       </View>
     </TouchableOpacity>
   );
