@@ -1,13 +1,13 @@
 //import liraries
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-
+import SessionList from "../../components/SessionList";
 // create a component
-const Favs = ({ faveIds }) => {
+const Favs = ({ sessions, faveIds }) => {
   console.log("favs on favscreen", faveIds);
   return (
     <View style={styles.container}>
-      <Text>Favs</Text>
+      <SessionList sessions={sessions} faveIds={faveIds} />
     </View>
   );
 };
