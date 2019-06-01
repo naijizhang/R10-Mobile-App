@@ -4,7 +4,7 @@ import styles from "./styles";
 import ConductItem from "../../components/ConductItem";
 const About = ({ conductItems }) => {
   return (
-    <ScrollView>
+    <ScrollView style={styles.container}>
       <View style={styles.logoContainer}>
         <Image
           style={styles.logo}

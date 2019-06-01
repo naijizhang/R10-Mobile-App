@@ -1,13 +1,20 @@
 import { StyleSheet } from "react-native";
 import colors from "../../config/colors";
 const styles = StyleSheet.create({
-  eachBlock: { margin: 10 },
+  eachBlock: {
+    marginTop: 15
+  },
   conductTitle: {
-    fontSize: 20,
-    color: colors.purple
+    fontSize: 18,
+    color: colors.purple,
+    fontFamily: "Montserrat",
+    fontWeight: "400"
   },
   conductContent: {
-    marginTop: 5
+    marginTop: 15,
+    fontFamily: "Montserrat",
+    fontWeight: "100",
+    lineHeight: 20
   },
   titleContainer: {
     flex: 1,
