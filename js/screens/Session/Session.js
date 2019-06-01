@@ -32,21 +32,26 @@ const Session = ({ item, navigation, faveIds, addFave, removeFave }) => {
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.time}>{moment(item.startTime).format("LT")}</Text>
       <Text style={styles.description}>{item.description}</Text>
-      <Text style={styles.presenredBy}>Presented by:</Text>
-      <TouchableOpacity
-        style={styles.speakerContainer}
-        onPress={() =>
-          navigation.navigate("Speaker", {
-            speaker: item.speaker
-          })
-        }
-      >
-        <Image
-          style={styles.profileImage}
-          source={{ uri: item.speaker.image }}
-        />
-        <Text style={styles.name}>{item.speaker.name}</Text>
-      </TouchableOpacity>
+      {item.speaker !== null ? (
+        <View>
+          <Text style={styles.presenredBy}>Presented by:</Text>
+          <TouchableOpacity
+            style={styles.speakerContainer}
+            onPress={() =>
+              navigation.navigate("Speaker", {
+                speaker: item.speaker
+              })
+            }
+          >
+            <Image
+              style={styles.profileImage}
+              source={{ uri: item.speaker.image }}
+            />
+            <Text style={styles.name}>{item.speaker.name}</Text>
+          </TouchableOpacity>
+        </View>
+      ) : null}
+
       <View style={styles.seperater} />
       {faveIds.includes(item.id) ? (
         <TouchableOpacity
@@ -54,7 +59,7 @@ const Session = ({ item, navigation, faveIds, addFave, removeFave }) => {
           onPress={() => removeFave(item.id)}
         >
           <LinearGradient
-            colors={["#9963ea","#4583e8"]}
+            colors={["#9963ea", "#4583e8"]}
             start={{ x: 0.0, y: 1.0 }}
             end={{ x: 1.0, y: 0.0 }}
             style={[StyleSheet.absoluteFill, { height: 50, width: "100%" }]}
@@ -67,7 +72,7 @@ const Session = ({ item, navigation, faveIds, addFave, removeFave }) => {
           onPress={() => addFave(item.id)}
         >
           <LinearGradient
-            colors={["#9963ea","#4583e8"]}
+            colors={["#9963ea", "#4583e8"]}
             start={{ x: 0.0, y: 1.0 }}
             end={{ x: 1.0, y: 0.0 }}
             style={[StyleSheet.absoluteFill, { height: 50, width: "100%" }]}

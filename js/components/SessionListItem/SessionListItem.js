@@ -17,9 +17,13 @@ const SessionListItem = ({ item, navigation, isFave }) => {
         <View style={styles.locationAndHeart}>
           <Text style={styles.location}>{item.location}</Text>
           <View>
-          {isFave ? (
-            <Ionicons style={styles.heartIcon} name={heartIconName} size={18} />
-          ) : null}
+            {isFave ? (
+              <Ionicons
+                style={styles.heartIcon}
+                name={heartIconName}
+                size={18}
+              />
+            ) : null}
           </View>
         </View>
       </View>
