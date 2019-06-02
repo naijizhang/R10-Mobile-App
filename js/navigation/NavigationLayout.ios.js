@@ -7,7 +7,7 @@ import AboutScreen from "../screens/About";
 import ScheduleScreen from "../screens/Schedule";
 import SessionScreen from "../screens/Session";
 import FavsScreen from "../screens/Favs";
-import SpeakerScreen from "../screens/Speaker";
+import MapScreen from "../screens/Map";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
 
@@ -21,11 +21,20 @@ const AboutStack = createStackNavigator(
     })
   }
 );
+const MapStack = createStackNavigator(
+  {
+    Map: MapScreen
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
+  }
+);
 const ScheduleStack = createStackNavigator(
   {
     Schedule: ScheduleScreen,
-    Session: SessionScreen,
-   // Speaker:SpeakerScreen
+    Session: SessionScreen
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -36,8 +45,7 @@ const ScheduleStack = createStackNavigator(
 const FavsStack = createStackNavigator(
   {
     Favs: FavsScreen,
-    Session: SessionScreen,
-   // Speaker:SpeakerScreen
+    Session: SessionScreen
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -49,6 +57,7 @@ const FavsStack = createStackNavigator(
 export default createBottomTabNavigator(
   {
     Schedule: ScheduleStack,
+    Map: MapStack,
     Favs: FavsStack,
     About: AboutStack
   },
@@ -60,6 +69,8 @@ export default createBottomTabNavigator(
         let iconName;
         if (routeName === "Schedule") {
           iconName = `ios-calendar`;
+        } else if (routeName === "Map") {
+          iconName = `ios-map`;
         } else if (routeName === "About") {
           iconName = `ios-information-circle`;
         } else if (routeName === "Favs") {
