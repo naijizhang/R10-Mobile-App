@@ -5,9 +5,9 @@ import {
   LayoutAnimation,
   Platform,
   UIManager,
-  Animated
+  Animated,
+  TouchableOpacity
 } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import styles from "./styles";
 class ConductItem extends Component {
   constructor(props) {
@@ -86,7 +86,6 @@ class ConductItem extends Component {
           </Animated.Text>
           <Text
             style={[styles.conductTitle]}
-            // style={styles.conductTitle}
           >
             {item.title}
           </Text>
