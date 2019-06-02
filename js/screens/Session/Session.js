@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   StyleSheet
 } from "react-native";
+import PropTypes from "prop-types";
 import LinearGradient from "react-native-linear-gradient";
 import moment from "moment";
 import { withNavigation } from "react-navigation";
@@ -82,5 +83,12 @@ const Session = ({ item, navigation, faveIds, addFave, removeFave }) => {
       )}
     </ScrollView>
   );
+};
+Session.propTypes = {
+  item: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
+  addFave: PropTypes.func.isRequired,
+  removeFave: PropTypes.func.isRequired,
+  faveIds: PropTypes.array.isRequired
 };
 export default withNavigation(Session);

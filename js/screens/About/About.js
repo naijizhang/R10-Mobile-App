@@ -1,5 +1,6 @@
 import React from "react";
 import { ScrollView, Text, View, Image } from "react-native";
+import PropTypes from "prop-types";
 import styles from "./styles";
 import ConductItem from "../../components/ConductItem";
 const About = ({ conductItems }) => {
@@ -28,4 +29,5 @@ const About = ({ conductItems }) => {
     </ScrollView>
   );
 };
+About.propTypes = { conductItems: PropTypes.object.isRequired };
 export default About;

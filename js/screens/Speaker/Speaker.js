@@ -5,6 +5,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
 import { withNavigation } from "react-navigation";
+import PropTypes from "prop-types";
 const Speaker = ({ speaker, navigation }) => {
   const closeIconName = Platform.select({
     ios: "ios-close",
@@ -42,5 +43,9 @@ const Speaker = ({ speaker, navigation }) => {
       </ScrollView>
     </View>
   );
+};
+Speaker.propTypes = {
+  speaker: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired
 };
 export default withNavigation(Speaker);

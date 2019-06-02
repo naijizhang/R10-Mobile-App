@@ -1,10 +1,8 @@
-//import liraries
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import SessionList from "../../components/SessionList";
-// create a component
+import PropTypes from "prop-types";
 const Favs = ({ sessions, faveIds }) => {
-  console.log("favs on favscreen", faveIds);
   return (
     <View style={styles.container}>
       <SessionList sessions={sessions} faveIds={faveIds} />
@@ -12,7 +10,6 @@ const Favs = ({ sessions, faveIds }) => {
   );
 };
 
-// define your styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -21,6 +18,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff"
   }
 });
+Favs.propTypes = {
+  sessions: PropTypes.array.isRequired,
+  faveIds: PropTypes.array.isRequired
+};
 
-//make this component available to the app
 export default Favs;
