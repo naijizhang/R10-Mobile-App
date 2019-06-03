@@ -4,8 +4,7 @@ This is a Front-end React Native project at RED Academy App Developer Program. I
 
 ## App Demo
 
-<!-- ![Site Demo](/public/images/site-demo.gif) -->
-
+<img src="./js/assets/images/demo.gif" style="width:50%; margin-left:25%;margin-top: 20px; margin-bottom:20px;">
 
 ---
 
