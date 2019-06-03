@@ -77,7 +77,7 @@ export default createDrawerNavigator(
         return <IconComponent name={iconName} size={25} color={tintColor} />;
       }
     }),
-    tabBarOptions: {
+    contentOptions: {
       activeTintColor: colors.purple,
       inactiveTintColor: colors.mediumGrey,
       labelStyle: { fontFamily: "Montserrat", fontSize: 20 },
