@@ -7,6 +7,7 @@ import FavsScreen from "../screens/Favs";
 import MapScreen from "../screens/Map";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
+import colors from "../config/colors";
 
 const AboutStack = createStackNavigator(
   {
@@ -77,10 +78,10 @@ export default createDrawerNavigator(
       }
     }),
     tabBarOptions: {
-      activeTintColor: "#ffffff",
-      inactiveTintColor: "#999999",
-      labelStyle: { fontFamily: "Montserrat", fontSize: 10 },
-      style: { backgroundColor: "#000000" }
+      activeTintColor: colors.purple,
+      inactiveTintColor: colors.mediumGrey,
+      labelStyle: { fontFamily: "Montserrat", fontSize: 20 },
+      style: { backgroundColor: colors.white }
     }
   }
 );
