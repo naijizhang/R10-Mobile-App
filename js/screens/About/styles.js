@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
   seperater: {
     width: "100%",
     borderBottomColor: colors.lightGrey,
-    borderBottomWidth: 2
+    borderBottomWidth: 2,
+    marginTop: 15,
   },
   title: {
     fontSize: 20,
@@ -27,6 +28,13 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat",
     fontWeight: "100",
     lineHeight:20
+  },
+  copyRight:{
+    fontFamily: "Montserrat",
+    fontSize: 18,
+    paddingTop:15,
+    paddingBottom:40,
+    fontWeight: "200",
   }
 });
 export default styles;
