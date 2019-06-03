@@ -7,7 +7,7 @@ const Map = () => {
   return (
     <View style={styles.container}>
     <MapView
-      provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+      provider={PROVIDER_GOOGLE}
       style={styles.map}
       region={{
         latitude: 49.263397,

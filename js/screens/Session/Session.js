@@ -1,5 +1,4 @@
-//import liraries
-import React, { Component } from "react";
+import React from "react";
 import {
   Platform,
   View,

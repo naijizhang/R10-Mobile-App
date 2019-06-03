@@ -1,4 +1,3 @@
-//import liraries
 import React, { Component } from "react";
 import Session from "./Session";
 import { withNavigation } from "react-navigation";
@@ -6,7 +5,7 @@ import gql from "graphql-tag";
 import Loader from "../../components/Loader";
 import { Query } from "react-apollo";
 import FavesContext from "../../context/FavesContext";
-// create a component
+
 class SessionContainer extends Component {
   static navigationOptions = {
     title: "Session"
@@ -20,7 +19,6 @@ class SessionContainer extends Component {
         query={GET_SESSION}
       >
         {({ loading, data }) => {
-          console.log("data", data);
           if (loading || !data) return <Loader loading={loading} />;
           return (
             <FavesContext.Consumer>
@@ -57,5 +55,4 @@ query session ($id :ID!){
 }
 `;
 
-//make this component available to the app
 export default withNavigation(SessionContainer);

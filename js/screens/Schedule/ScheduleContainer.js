@@ -39,5 +39,5 @@ const GET_SESSIONS = gql`
     }
   }
 `;
-//make this component available to the app
+
 export default ScheduleContainer;

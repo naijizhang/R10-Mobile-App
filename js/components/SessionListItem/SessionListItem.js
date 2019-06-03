@@ -1,10 +1,9 @@
-//import liraries
-import React, { Component } from "react";
+import React from "react";
 import { Platform, View, Text, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { withNavigation } from "react-navigation";
 import Ionicons from "react-native-vector-icons/Ionicons";
-// create a component
+import PropTypes from "prop-types";
 const SessionListItem = ({ item, navigation, isFave }) => {
   const heartIconName = Platform.select({
     ios: "ios-heart",
@@ -30,6 +29,9 @@ const SessionListItem = ({ item, navigation, isFave }) => {
     </TouchableOpacity>
   );
 };
-
-//make this component available to the app
+SessionListItem.propTypes = { 
+  item: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
+  isFave: PropTypes.bool.isRequired   
+};
 export default withNavigation(SessionListItem);

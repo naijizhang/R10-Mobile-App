@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-import { Text } from "react-native";
 import About from "./About";
 import gql from "graphql-tag";
 import Loader from "../../components/Loader";
@@ -13,7 +12,6 @@ class AboutContainer extends Component {
       <Query query={GET_CONDUCT_ITEMS}>
         {({ loading, data }) => {
           if (loading || !data) return <Loader loading={loading} />;
-          console.log(data);
           return <About conductItems={data} />;
         }}
       </Query>

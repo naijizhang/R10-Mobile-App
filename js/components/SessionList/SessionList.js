@@ -1,10 +1,9 @@
-//import liraries
-import React, { Component } from "react";
+import React from "react";
 import { View, Text, SectionList } from "react-native";
 import moment from "moment";
 import SessionListItem from "../SessionListItem";
 import styles from "./styles";
-// create a component
+import PropTypes from "prop-types";
 const SessionList = ({ sessions, faveIds }) => {
   return (
     <View style={styles.container}>
@@ -25,6 +24,8 @@ const SessionList = ({ sessions, faveIds }) => {
     </View>
   );
 };
-
-//make this component available to the app
+SessionList.propTypes = {   
+  sessions: PropTypes.array.isRequired,
+  faveIds: PropTypes.array.isRequired
+};
 export default SessionList;
