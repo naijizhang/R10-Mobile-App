@@ -3,8 +3,13 @@
 This is a Front-end React Native project at RED Academy App Developer Program. In this app, user can read upcoming developer conference and add them to favs. It has four main screens: Schedule, Map, Favs, and About. All the functionalities and animations are implemented in both the iOS and Android version.
 
 ## App Demo
+---
+### On iPhone 
+<img src="./js/assets/images/demo-ios.gif" style="width:40%; margin-left:30%;margin-top: 20px; margin-bottom:20px;">
 
-<img src="./js/assets/images/demo.gif" style="width:50%; margin-left:25%;margin-top: 20px; margin-bottom:20px;">
+### On Android 
+<img src="./js/assets/images/demo-android.gif" style="width:40%; margin-left:30%;margin-top: 20px; margin-bottom:20px;">
+
 
 ---
 
