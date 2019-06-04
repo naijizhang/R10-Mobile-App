@@ -24,7 +24,7 @@ const SessionList = ({ sessions, faveIds }) => {
     </View>
   );
 };
-SessionList.propTypes = {   
+SessionList.propTypes = {
   sessions: PropTypes.array.isRequired,
   faveIds: PropTypes.array.isRequired
 };

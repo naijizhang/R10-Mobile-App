@@ -1,5 +1,5 @@
 import React, { createContext, Component } from "react";
-import { queryFaves, createFave,removeFave } from "../../config/models";
+import { queryFaves, createFave, removeFave } from "../../config/models";
 
 const FavesContext = React.createContext();
 class FavesProvider extends Component {

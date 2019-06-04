@@ -14,10 +14,7 @@ class SessionContainer extends Component {
     const { navigation } = this.props;
     const item = navigation.getParam("item", "NO-ITEM");
     return (
-      <Query
-      variables={{id:item.id}}
-        query={GET_SESSION}
-      >
+      <Query variables={{ id: item.id }} query={GET_SESSION}>
         {({ loading, data }) => {
           if (loading || !data) return <Loader loading={loading} />;
           return (
@@ -41,18 +38,18 @@ class SessionContainer extends Component {
   }
 }
 const GET_SESSION = gql`
-query session ($id :ID!){
-  Session(id: $id) {
-    description
-    speaker {
-      id
-      name
-      image
-      bio
-      url
+  query session($id: ID!) {
+    Session(id: $id) {
+      description
+      speaker {
+        id
+        name
+        image
+        bio
+        url
+      }
     }
   }
-}
 `;
 
 export default withNavigation(SessionContainer);

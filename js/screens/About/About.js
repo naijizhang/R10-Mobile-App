@@ -26,8 +26,8 @@ const About = ({ conductItems }) => {
         conductItems.allConducts.map(item => {
           return <ConductItem item={item} key={item.id} />;
         })}
-         <View style={styles.seperater} />
-        <Text style={styles.copyRight}>&copy; RED Academy 2017</Text>
+      <View style={styles.seperater} />
+      <Text style={styles.copyRight}>&copy; RED Academy 2017</Text>
     </ScrollView>
   );
 };

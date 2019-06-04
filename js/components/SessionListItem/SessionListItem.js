@@ -29,9 +29,9 @@ const SessionListItem = ({ item, navigation, isFave }) => {
     </TouchableOpacity>
   );
 };
-SessionListItem.propTypes = { 
+SessionListItem.propTypes = {
   item: PropTypes.object.isRequired,
   navigation: PropTypes.object.isRequired,
-  isFave: PropTypes.bool.isRequired   
+  isFave: PropTypes.bool.isRequired
 };
 export default withNavigation(SessionListItem);

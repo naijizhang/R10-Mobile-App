@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   locationAndHeart: {
     width: "100%",
-    height:25,
+    height: 25,
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
@@ -77,10 +77,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    margin:20,
+    margin: 20,
     marginLeft: "auto",
     marginRight: "auto",
-    marginBottom:30
+    marginBottom: 30
   },
   buttonText: {
     fontFamily: "Montserrat",

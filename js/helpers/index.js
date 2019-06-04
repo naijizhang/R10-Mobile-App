@@ -1,2 +1,2 @@
-import {formatSessionData} from "./dataFormatHelpers";
+import { formatSessionData } from "./dataFormatHelpers";
 export default formatSessionData;

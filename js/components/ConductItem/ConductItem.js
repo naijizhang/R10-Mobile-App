@@ -84,11 +84,7 @@ class ConductItem extends Component {
           <Animated.Text style={[styles.plusSign, animatedStyles]}>
             {isPlusSign ? "+" : "-"}
           </Animated.Text>
-          <Text
-            style={[styles.conductTitle]}
-          >
-            {item.title}
-          </Text>
+          <Text style={[styles.conductTitle]}>{item.title}</Text>
         </TouchableOpacity>
         {isOpen ? (
           <Text style={styles.conductContent}>{item.description}</Text>

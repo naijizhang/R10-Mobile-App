@@ -3,7 +3,7 @@ import colors from "../../config/colors";
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
-    padding: 15,
+    padding: 15
   },
   logo: {
     marginLeft: "auto",
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     width: "100%",
     borderBottomColor: colors.lightGrey,
     borderBottomWidth: 2,
-    marginTop: 15,
+    marginTop: 15
   },
   title: {
     fontSize: 20,
@@ -27,14 +27,14 @@ const styles = StyleSheet.create({
     marginTop: 15,
     fontFamily: "Montserrat",
     fontWeight: "100",
-    lineHeight:20
+    lineHeight: 20
   },
-  copyRight:{
+  copyRight: {
     fontFamily: "Montserrat",
     fontSize: 18,
-    paddingTop:15,
-    paddingBottom:40,
-    fontWeight: "200",
+    paddingTop: 15,
+    paddingBottom: 40,
+    fontWeight: "200"
   }
 });
 export default styles;

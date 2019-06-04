@@ -1,2 +1,2 @@
-import ScheduleContainer from "./ScheduleContainer"
-export default ScheduleContainer
+import ScheduleContainer from "./ScheduleContainer";
+export default ScheduleContainer;

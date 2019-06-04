@@ -1,6 +1,9 @@
 {
   "name": "R10",
   "version": "0.0.1",
+  "description": "An React Native App.",
+  "license": "ISC",
+  "author": "Naiji Zhang <naijizhang@gmail.com>",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",

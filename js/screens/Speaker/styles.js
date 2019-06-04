@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   closeIcon: {
     color: colors.white,
     position: "absolute",
-    left: 10,
+    left: 10
   },
   header: {
     color: colors.white,
@@ -38,18 +38,18 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
     marginRight: "auto"
   },
-  name:{
+  name: {
     fontFamily: "Montserrat",
     fontSize: 25,
     marginLeft: "auto",
     marginRight: "auto"
   },
-  bio:{
+  bio: {
     fontFamily: "Montserrat",
-    fontWeight:"100",
+    fontWeight: "100",
     fontSize: 15,
-    padding:15,
-    lineHeight:25
+    padding: 15,
+    lineHeight: 25
   },
   button: {
     height: 40,
@@ -59,10 +59,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    margin:20,
+    margin: 20,
     marginLeft: "auto",
     marginRight: "auto",
-    marginBottom:30
+    marginBottom: 30
   },
   buttonText: {
     fontFamily: "Montserrat",

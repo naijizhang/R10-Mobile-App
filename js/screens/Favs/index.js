@@ -1,2 +1,2 @@
-import FavsContainer from "./FavsContainer"
-export default FavsContainer
+import FavsContainer from "./FavsContainer";
+export default FavsContainer;
